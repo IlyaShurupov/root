@@ -1,0 +1,16 @@
+﻿D:\Progs\windows\Dev\VisualStudio\IDE\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(519,5): warning MSB8028: The intermediate directory (D:\Dev\intern\rtc\vsproj\..\out\.tmp\x64\Debug\) contains files shared from another project (rtc.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  File.cpp
+D:\Dev\intern\Types\src\IO\private\File.cpp(24,15): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  Parser.cpp
+  Keyboard.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+D:\Dev\lib\glfw\include\GLFW\glfw3.h(123): message : see previous definition of 'APIENTRY'
+  Mem.cpp
+  Strings.cpp
+D:\Dev\intern\Types\src\Strings\private\Strings.cpp(279,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Window.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+D:\Dev\lib\glfw\include\GLFW\glfw3.h(123): message : see previous definition of 'APIENTRY'
+D:\Dev\intern\Types\src\Window\Window.cpp(106,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  Types.vcxproj -> D:\Dev\intern\rtc\out\x64\Debug\Types.lib

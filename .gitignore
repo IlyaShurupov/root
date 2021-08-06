@@ -1,0 +1,37 @@
+# all files to exclude from save
+
+#cache files
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+install_manifest.txt
+compile_commands.json
+__pycache__/
+*.py[cod]
+
+# recreatable files
+.vs
+.vscode
+.idea
+bin
+lib
+tmp
+data
+
+# large || unimportant sources  // todo: create link refs in git
+blend
+cpython
+glew-2.1.0
+glfw
+godot
+imgui
+nanogui
+nanovg
+python-vsgen
+UnrealEngine
+SimpleRE
+SDL2
+SDL2_image
+raytracer-cpu

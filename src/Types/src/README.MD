@@ -1,0 +1,3 @@
+# Types
+
+Common types library.
