@@ -1,1 +1,0 @@
-qemu .\out\os.bin
