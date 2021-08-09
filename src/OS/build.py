@@ -38,29 +38,59 @@ def clear():
 def build():
 	mkdir(out)
  
+	# compile
 	shell("nasm -f bin boot/boot.asm -o out/boot_tmp.bin")
 	shell("nasm -f bin boot/bsect.asm -o out/bsect.bin")
 	
+	# align boot size with 512 bytes
+	boot_size = os.path.getsize("out/boot_tmp.bin")
+	alignment = 512 - (boot_size % 512)
+	with open("out/boot_tmp.bin", "r+b") as file:
+		fiil = 0
+		file.seek(boot_size)
+		for idx in range(alignment):
+			file.write(fiil.to_bytes(1, 'big'))
+	boot_size += alignment
 
-def rebuild():
-	clear()
-	build()
-
-def setup():
+	# combine binaries
 	with open("out/boot.bin", "w+") as file:
 		pass
 
 	add_files("out/bsect.bin", "out/boot_tmp.bin", "out/boot.bin")
 	shell("qemu-img convert -O vmdk out/boot.bin out/drive.vmdk")
 
+	# tell the size of binaries to bsect
+	fh = open("out/boot.bin", "r+b")
+	fh.seek(508)
+	fh.write(int(boot_size / 512).to_bytes(2, 'little'))
+
+
+
+def rebuild():
+	clear()
+	build()
+
+
 def run(vbox):
 	if vbox == "qemu":
-		shell("qemu -fda out/boot.bin")
+		shell("qemu -hda out/boot.bin")
 	else:
 		pass
 
 # ---------------  entry ------------------------- 
 
 
-for idx in range(1, len(sys.argv)):
-	exec(sys.argv[idx])
+try:
+	for idx in range(1, len(sys.argv)):
+		exec(sys.argv[idx])
+
+except Exception as e:
+	import traceback
+	import logging
+	logging.error(traceback.format_exc())
+    # Logs the error appropriately. 
+
+
+
+
+shell("timeout 3")
