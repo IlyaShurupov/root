@@ -1,1 +1,1 @@
-python3 build.py "run(\"qemu\")"
+python3 build.py "run(\"qemu\", \" -monitor stdio -d pcall -D ./out/log.txt \")"

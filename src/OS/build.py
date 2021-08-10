@@ -39,8 +39,8 @@ def build():
 	mkdir(out)
  
 	# compile
-	shell("nasm -f bin boot/boot.asm -o out/boot_tmp.bin")
-	shell("nasm -f bin boot/bsect.asm -o out/bsect.bin")
+	shell("nasm -g -f bin boot/boot.asm -o out/boot_tmp.bin")
+	shell("nasm -g -f bin boot/bsect.asm -o out/bsect.bin")
 	
 	# align boot size with 512 bytes
 	boot_size = os.path.getsize("out/boot_tmp.bin")
@@ -64,6 +64,8 @@ def build():
 	fh.seek(508)
 	fh.write(int(boot_size / 512).to_bytes(2, 'little'))
 
+	
+	copyfile("out/boot.bin", "out/boot.iso")
 
 
 def rebuild():
@@ -71,9 +73,9 @@ def rebuild():
 	build()
 
 
-def run(vbox):
+def run(vbox, commands):
 	if vbox == "qemu":
-		shell("qemu -hda out/boot.bin")
+		shell("qemu " + commands + " -hda out/boot.bin")
 	else:
 		pass
 
