@@ -1,6 +1,4 @@
 
-[org 0x1000]
-
 [bits 16]
  
 mov ah, 0x0e ; tty mode
@@ -88,8 +86,7 @@ switch_to_pm:
     mov es, ax
     mov ss, ax
 
-	cli
-	
+
     cli ; 1. disable interrupts
     lgdt [gdt_descriptor] ; 2. load the GDT descriptor
     mov eax, cr0
@@ -116,7 +113,7 @@ init_pm: ; we are now using 32-bit instructions
    
 
 [extern _krnl_entry]
-    ;call _krnl_entry
+    call _krnl_entry
     hlt
 
 

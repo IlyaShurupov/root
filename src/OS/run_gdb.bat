@@ -1,1 +1,3 @@
-python3 build.py "run(\"qemu\", \" -s -S \")"
+gdb -ex \"target remote : 1234\" -ex "symbol-file out/kernel.debug"
+
+

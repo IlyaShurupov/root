@@ -6,15 +6,7 @@ import sys
 from os.path import *
 from shutil import *
 
-
-def files_of_type(path, ext):
-	files = []
-	for root, dirs, files in os.walk(path):
-		for file in files:
-			if(file.endswith(ext)):
-				files.append(os.path.join(root,file))
-	return files
-
+import kernel.krn_bld as KB 
 
 root = dirname(abspath(__file__))
 out = join(root, "out")
@@ -39,9 +31,18 @@ def build():
 	mkdir(out)
  
 	# compile
-	shell("nasm -g -f bin boot/boot.asm -o out/boot_tmp.bin")
-	shell("nasm -g -f bin boot/bsect.asm -o out/bsect.bin")
+	shell("nasm -f bin boot/bsect.asm -o out/bsect.bin")
+	shell("nasm -g -F dwarf -f elf boot/boot.asm -o out/boot_tmp.o")
 	
+	KB.build(root, out, root + "\\kernel\\")
+
+
+	shell("ld -m i386pe -g -T NUL -o out/kernel.tmp -Ttext 0x1000 out/boot_tmp.o out/kernel.o ")
+	shell("objcopy -O binary -j .text  out/kernel.tmp out/boot_tmp.bin  ")
+	
+	shell("objcopy --only-keep-debug out/kernel.tmp out/kernel.debug  ")
+
+
 	# align boot size with 512 bytes
 	boot_size = os.path.getsize("out/boot_tmp.bin")
 	alignment = 512 - (boot_size % 512)
