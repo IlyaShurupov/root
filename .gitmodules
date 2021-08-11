@@ -1,3 +1,6 @@
 [submodule "src/Cbuilder"]
 	path = src/Cbuilder
 	url = https://github.com/IlyaShurupov/CBuilder.git
+[submodule "src/Nodes"]
+	path = src/Nodes
+	url = https://github.com/IlyaShurupov/Nodes.git
