@@ -21,6 +21,7 @@ tmp
 data
 
 # large || unimportant sources  // todo: create link refs in git
+linux
 30DayOs
 blend
 cpython
@@ -36,3 +37,4 @@ SimpleRE
 SDL2
 SDL2_image
 raytracer-cpu
+vpy

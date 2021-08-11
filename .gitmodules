@@ -1,0 +1,3 @@
+[submodule "src/Cbuilder"]
+	path = src/Cbuilder
+	url = https://github.com/IlyaShurupov/CBuilder.git
