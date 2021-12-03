@@ -10,6 +10,6 @@
 [submodule "src/PyEmb"]
 	path = src/PyEmb
 	url = https://github.com/IlyaShurupov/PyEmbedding.git
-[submodule "src/MaSoftwareRT"]
-	path = src/MaSoftwareRT
-	url = https://github.com/IlyaShurupov/Ma-SoftwareRayTracing.git
+[submodule "src/Ma-SoftwareRayTracing"]
+	path = src/Ma-SoftwareRayTracing
+	url = https://github.com/IlyaShurupov/Ma-SoftwareRayTracing
