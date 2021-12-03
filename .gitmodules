@@ -4,12 +4,12 @@
 [submodule "src/Nodes"]
 	path = src/Nodes
 	url = https://github.com/IlyaShurupov/Nodes.git
-[submodule "src/Graphs"]
-	path = src/Graphs
-	url = https://github.com/IlyaShurupov/PyGraph.git
-[submodule "src/PyEmb"]
-	path = src/PyEmb
-	url = https://github.com/IlyaShurupov/PyEmbedding.git
 [submodule "src/Ma-SoftwareRayTracing"]
 	path = src/Ma-SoftwareRayTracing
 	url = https://github.com/IlyaShurupov/Ma-SoftwareRayTracing
+[submodule "src/PyEmb"]
+	path = src/PyEmb
+	url = https://github.com/IlyaShurupov/PyEmbedding
+[submodule "src/PyGraph"]
+	path = src/PyGraph
+	url = https://github.com/IlyaShurupov/PyGraph
