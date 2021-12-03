@@ -10,5 +10,5 @@ public:
  ~Mesh();
   Mat3f TransformMat;
   Vec3f Pos;
-	List<Trig> Trigs;
+	List<Trig*> Trigs;
 };

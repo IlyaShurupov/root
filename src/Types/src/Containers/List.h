@@ -13,16 +13,16 @@ template <class Type> class List;
 template <typename Type>
 class Node {
 public:
-	Type* data;
+	Type data;
 	Node<Type>* next = nullptr;
 	Node<Type>* prev = nullptr;
 
-	Node(Type* p_data) { data = p_data; }
+	Node(Type p_data) { data = p_data; }
 
-	Type* operator->() { return data; }
+	Type operator->() { return data; }
 
 	void FreeData() {
-		delete data;
+		delete ((void*)data);
 	}
 };
 
@@ -35,6 +35,7 @@ class List {
 
 public:
 	bool recursive_free_on_destruction = true;
+	bool shared_nodes = false;
 
 public:
 	List() {}
@@ -42,6 +43,10 @@ public:
 
 	inline Node<Type>* First() { return first; }
 	inline Node<Type>* Last() { return last; }
+
+	inline const Node<Type>* First() const { return first; }
+	inline const Node<Type>* Last() const { return last; }
+	
 	inline int Len() { return length; }
 
 	void Attach(Node<Type>* node, Node<Type>* node_to) {
@@ -98,7 +103,7 @@ public:
 		return found;
 	}
 
-	Node<Type>* Find(Type* data) {
+	Node<Type>* Find(Type data) {
 		Node<Type>* found = First();
 		for (int i = 0; data != found->data; i++) {
 			if (!found->next) {
@@ -126,7 +131,7 @@ public:
 
 		SortPolicy SortP;
 
-		Type** buffer = new Type * [length];
+		Type* buffer = new Type[length];
 
 		for (auto iter : *this) {
 			*(buffer + iter.Idx()) = iter.Data();
@@ -145,22 +150,22 @@ public:
 		ListIterator<Type> i(this, 0);
 		ListIterator<Type> j(this, Len() - 1);
 		while (i < Len() / 2) {
-			SWAP(i.node()->data, j.node()->data, Type*);
+			SWAP(i.node()->data, j.node()->data, Type);
 			++i;
 			--j;
 		}
 	}
 
-	inline Type& operator[](ListIterator<Type>& iter) { return *iter.node()->data; }
-	inline Type& operator[](int idx) { return *Find(idx)->data; }
+	inline Type& operator[](ListIterator<Type>& iter) { return iter.node()->data; }
+	inline Type& operator[](int idx) { return Find(idx)->data; }
 
 	void PushBack(Node<Type>* new_node) { Attach(new_node, Last()); }
 	void PushFront(Node<Type>* new_node) { Attach(new_node, nullptr); }
 
-	void PushBack(Type* data) {
+	void PushBack(Type data) {
 		PushBack(new Node<Type>(data));
 	}
-	void PushFront(Type* data) {
+	void PushFront(Type data) {
 		PushFront(new Node<Type>(data));
 	}
 
@@ -169,7 +174,7 @@ public:
 		Attach(node, place_to->prev);
 	}
 
-	void Insert(Type* data, int idx) {
+	void Insert(Type data, int idx) {
 		Insert(new Node<Type>(data), idx);
 	}
 
@@ -180,7 +185,12 @@ public:
 	}
 
 	void Release() {
-		ForEach([](List<Type>* list, Node<Type>* node) { list->Detach(node); });
+		if (shared_nodes) {
+			ForEach([](List<Type>* list, Node<Type>* node) { list->Detach(node); });
+		}
+		else {
+			ForEach([](List<Type>* list, Node<Type>* node) { Node<Type>* del_node = node;  list->Detach(node); delete del_node; });
+		}
 		length = 0;
 		first = last = nullptr;
 	}
@@ -200,12 +210,7 @@ public:
 
 	List<Type>& operator = (const List<Type>& in) {
 
-		if (recursive_free_on_destruction) {
-			Delete();
-		}
-		else {
-			Release();
-		}
+		Clear();
 
 		*this += in;
 
@@ -254,8 +259,8 @@ class ListIterator {
 
 public:
 	int Idx() { return idx; }
-	Type* operator->() { return iter->data; }
-	Type* Data() { return iter->data; }
+	Type& operator->() { return iter->data; }
+	Type& Data() { return iter->data; }
 	Node<Type>* node() { return iter; }
 
 	ListIterator(List<Type>* list, int p_idx) {

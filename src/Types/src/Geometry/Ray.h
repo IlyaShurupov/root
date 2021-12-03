@@ -21,5 +21,5 @@ public:
 	Ray(Vec3f& Dir, Vec3f& Pos);
 	Ray();
 	~Ray();
-	void Cast(List<Mesh>* objects, float ray_length);
+	void Cast(List<Mesh*>* objects, float ray_length);
 };

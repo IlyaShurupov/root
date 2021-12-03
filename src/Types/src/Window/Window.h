@@ -2,6 +2,7 @@
 
 #include "Geometry/Rect.h"
 #include "BitMap/Color.h"
+#include "Strings/Strings.h"
 
 class Window {
 

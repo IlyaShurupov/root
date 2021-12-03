@@ -24,7 +24,7 @@ void WorldTransform(Trig* trig, Vec3f* pos, Mat3f* mat) {
 	trig->V2 + *pos;
 }
 
-void Ray::Cast(List<Mesh>* objects, float ray_length) {
+void Ray::Cast(List<Mesh*>* objects, float ray_length) {
 	HitData.Hit = false;
 
 	for (auto mesh : *objects) {

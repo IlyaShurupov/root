@@ -20,7 +20,7 @@ struct DataBlock {
   float floating = 0;
   bool boolean = 0;
   Str string;
-  List<DataBlock> list;
+  List<DataBlock*> list;
 
   DataBlock* find(const char* BlockName);
   ~DataBlock();

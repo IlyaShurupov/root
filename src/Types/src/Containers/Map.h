@@ -31,11 +31,17 @@ struct HashNode {
 template <typename V, typename K, typename Hashfunc, typename CopyValfunc = CopyBytes<V>, int table_size = HASHMAP_MIN_SIZE>
 class HashMap {
 
+	void free_table() {
+		for (alni i = 0; i < nslots; i++) {
+			table[i] = nullptr;
+		}
+	}
+
 public:
 
 	HashNode<V, K>** table;
-	int nslots;
-	int nentries = 0;
+	alni nslots;
+	alni nentries = 0;
 	bool del_values = true;
 
 	Hashfunc hash;
@@ -47,6 +53,7 @@ public:
 
 		nslots = next_pow_of_2((uint8)((1.f / (HASHMAP_LOAD_FACTOR)) * nentries + 1));
 		table = new HashNode<V, K>*[nslots]();
+		free_table();
 		nentries = 0;
 
 		for (int i = 0; i < nslots_old; i++) {
@@ -70,11 +77,15 @@ public:
 	NEXT:
 
 		if (HASHMAP_DELETED_SLOT(table, idx)) {
-			if (!existing) {
-				return idx;
+			if (existing) {
+				return -1;
 			}
+			return idx;
 		}
-		else if (!table[idx] && !existing) {
+		else if (!table[idx]) {
+			if (existing) {
+				return -1;
+			}
 			return idx;
 		}
 		else if (table[idx]->key == key) {
@@ -87,8 +98,9 @@ public:
 	}
 
 	HashMap() {
-		table = new HashNode<V, K>*[table_size]();
 		nslots = next_pow_of_2(table_size - 1);
+		table = new HashNode<V, K>*[nslots]();
+		free_table();
 	}
 
 	void Put(const K& key, const V& val) {
@@ -110,8 +122,14 @@ public:
 		}
 	}
 
+	int Presents(const K& key) {
+		int idx = find_slot(key, true);
+		return idx == -1 ? -1 : idx;
+	}
+
 	V& Get(const K& key) {
 		int idx = find_slot(key, true);
+		assert(idx != -1);
 		return table[idx]->val;
 	}
 
@@ -126,9 +144,9 @@ public:
 		if (del_values) {
 			delete table[idx]->val;
 		}
-		
+
 		delete table[idx];
-		table[idx] = (HashNode<V, K>*)-1;
+		table[idx] = (HashNode<V, K>*) - 1;
 
 		nentries--;
 		if ((float)nentries / nslots < 1 - HASHMAP_LOAD_FACTOR) {
@@ -162,10 +180,10 @@ public:
 	}
 
 	MapIterator<K, V, Hashfunc, CopyValfunc, table_size> begin() {
-		return MapIterator<K, V, Hashfunc, CopyValfunc, table_size>(this);  
+		return MapIterator<K, V, Hashfunc, CopyValfunc, table_size>(this);
 	}
 
-	int end() {
+	alni end() {
 		return nslots;
 	}
 
@@ -182,7 +200,7 @@ public:
 		return -1;
 	}
 
-	HashNode<V, K>* GetEntry(int idx) { 
+	HashNode<V, K>* GetEntry(int idx) {
 		return table[SlotIdx(idx)];
 	}
 
@@ -226,8 +244,8 @@ public:
 		entry_idx++;
 	}
 
-	bool operator!=(int p_idx) { 
-		return slot_idx != p_idx; 
+	bool operator!=(int p_idx) {
+		return slot_idx != p_idx;
 	}
 
 	const MapIterator& operator*() { return *this; }

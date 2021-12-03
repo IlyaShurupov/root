@@ -4,8 +4,16 @@
 
 struct Str;
 
+#define STRR const Str&
+
+typedef alni str_idx;
+
+int find_char(const char* c_str, int start, char val);
+int cstr_len(const char* c_str);
+str_idx cstrlen(const char* str);
+
 void to_string(Str* str, int val);
-void to_string(Str* str, float val);
+void to_string(Str* str, alnf val);
 void to_string(Str* str, bool val);
 void to_string(Str* str, char val);
 
@@ -14,13 +22,9 @@ inline void to_string(Str* str, Type val) {
   to_string(str, val);
 }
 
-
 bool str_from_string(Str* str, int& val);
 bool str_from_string(Str* str, float& val);
 bool str_from_string(Str* str, bool& val);
-
-
-typedef long int str_idx;
 
 struct Range {
   str_idx strt;
@@ -55,7 +59,7 @@ struct Str {
   char* str = nullptr;
   str_idx length = 0;
 
-  str_idx len() const;
+  str_idx len();
   void alloc(str_idx len);
   void clear();
 
@@ -76,12 +80,16 @@ struct Str {
   
   void coppy(Str* str, Range range);
 
-  str_idx find(const Str& string);
-  str_idx find(const Str& string, Range range);
-  str_idx find(const char character, Range range);
-  str_idx rfind(const char character, Range range);
+  str_idx find(Str& string, Range range) const;
+  str_idx find(const char character, Range range) const;
+  str_idx rfind(const char character, Range range) const;
 
   void trim(Range range);
+
+  void assign(char* cs) {
+    str = cs;
+    length = cstrlen(cs);
+  }
 
   template <typename Type>
   bool to_val(Type& val) {
@@ -98,3 +106,4 @@ struct Str {
 #endif 
 
 void cnsl(const Str& str);
+

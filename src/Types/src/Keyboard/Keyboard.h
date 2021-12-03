@@ -34,6 +34,7 @@ public:
 
 #define KEY_LBUTTON        0x01
 #define KEY_RBUTTON        0x02
+#define KEY_ESC			       0x1B
 #define KEY_CANCEL         0x03
 #define KEY_MBUTTON        0x04    
 
@@ -67,6 +68,18 @@ public:
 
 #define KEY_MINUS					 0xBD
 #define KEY_PLUS					 0xBB
+
+#define KEY_DIVIDE				0x6F
+
+#define KEY_OEM_1		0xBA	//  (:;)
+#define KEY_OEM_2		0xBF	//  (? / )
+#define KEY_OEM_3		0xC0	//  (~`)
+#define KEY_OEM_4		0xDB	//  ({ [)
+#define KEY_OEM_5		0xDC	//  (| \)
+#define KEY_OEM_6		0xDD	//  (}] )
+#define KEY_OEM_7		0xDE	//  (" ')
+#define KEY_OEM_8		0xDF	//  (§ !)
+
 /*
 	KEY_0 - KEY_9 are the same as ASCII '0' - '9' 
 	KEY_A - KEY_Z are the same as ASCII 'A' - 'Z' 

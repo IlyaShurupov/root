@@ -21,20 +21,25 @@ tmp
 data
 
 # large || unimportant sources  // todo: create link refs in git
-linux
 30DayOs
 blend
 cpython
-glew-2.1.0
+glew
 glfw
+glm
 godot
 imgui
+linux
+MITrasterizer
 nanogui
 nanovg
+pybind11
 python-vsgen
-UnrealEngine
-SimpleRE
+raytracer-cpu
 SDL2
 SDL2_image
-raytracer-cpu
-vpy
+SimpleRE
+tcc
+Types
+UnrealEngine
+Vulkan-Samples

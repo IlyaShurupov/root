@@ -6,10 +6,10 @@
 template <typename Type>
 class Array {
   
- public:
-
   Type* buff;
   uint4 length;
+
+ public:
 
   Array() { 
     length = 0;
@@ -76,9 +76,8 @@ class Array {
     }
   }
 
-  template < typename IDXTYPE >
-  Type& operator[](IDXTYPE idx) {
-    return buff[(uint4)idx];
+  Type& operator[](uint4 idx) {
+    return buff[idx];
   }
 
   void PushBack(Type block) {
@@ -114,14 +113,6 @@ class Array {
     for (int i = 0; i < array.length; i++) {
       buff[i] = array.buff[i];
     }
-  }
-
-  void Delete() {
-    for (int idx = 0; idx < Len(); idx++) {
-      delete buff[idx];
-    }
-
-    Free();
   }
 
   ~Array() {

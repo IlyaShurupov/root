@@ -1,14 +1,14 @@
 
 #include "Macros.h"
 
-int FltToInt(float f) {
-	union { float f; aligned i; } u;
+alni FltToInt(float f) {
+	union { float f; alni i; } u;
 	u.f = f;
 	return u.i;
 }
 
-float IntToFlt(aligned i) {
-	union { float f; aligned i; } u;
+float IntToFlt(alni i) {
+	union { float f; alni i; } u;
 	u.i = i;
 	return u.f;
 }
@@ -30,4 +30,8 @@ int hash_string(const char* bytes) {
 		hash = ((hash << 5) + hash) + c;
 	}
 	return hash;
+}
+
+void dbg_assert(const char* exp, const char* file, int line) {
+	throw -1;
 }

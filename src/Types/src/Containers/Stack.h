@@ -3,61 +3,58 @@
 #include "Memory/Mem.h"
 
 #define FOREACH_STACK(type, stack, iter) \
-  for (StackNode<type>* iter = stack->first; iter; iter = iter->next)
+  for (StackNode<type>* iter = stack->last; iter; iter = iter->prev)
 
 template <typename Type>
 class StackNode {
  public:
-  StackNode<Type>* next;
-  Type* data;
+  StackNode<Type>* prev;
+  Type data;
 
  public:
-  StackNode(Type* data, StackNode<Type>* next) {
-    this->next = next;
+  StackNode(Type data, StackNode<Type>* prev) {
+    this->prev = prev;
     this->data = data;
   }
   ~StackNode() {
-    DELETE_DBG(Type, data);
   }
 };
 
 template <typename Type>
 class Stack {
- private:
-  long length;
-
  public:
-  StackNode<Type>* first;
+  
+  alni length;
+  StackNode<Type>* last;
 
   Stack() {
     length = 0;
-    first = nullptr;
+    last = nullptr;
   }
-  ~Stack() {}
 
-  inline int MemSize() { return sizeof(StackNode<Type>) * length; }
+  ~Stack() {
+    free();
+  }
 
-  inline long len() { return length; }
-
-  inline void add(Type* data) {
-    StackNode<Type>* NewNode = NEW_DBG(StackNode<Type>) StackNode<Type>(data, first);
-    first = NewNode;
+  void push(Type data) {
+    StackNode<Type>* NewNode = new StackNode<Type>(data, last);
+    last = NewNode;
     length++;
   }
 
-  inline void pop() {
-    StackNode<Type>* del = first;
-    first = first->next;
-    DELETE_DBG(StackNode<Type>, del);
+  void pop() {
+    StackNode<Type>* del = last;
+    last = last->prev;
+    delete del;
     length--;
   }
 
-  inline void free() {
-    StackNode<Type>* del = first;
-    for (size_t i = 0; i < length; i++) {
-      StackNode<Type>* next = del->next;
-      DELETE_DBG(StackNode<Type>, del);
-      del = next;
+  void free() {
+    StackNode<Type>* del = last;
+    for (alni i = 0; i < length; i++) {
+      StackNode<Type>* prev = del->prev;
+      delete del;
+      del = prev;
     }
   }
 };
