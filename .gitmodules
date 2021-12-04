@@ -13,3 +13,12 @@
 [submodule "src/PyGraph"]
 	path = src/PyGraph
 	url = https://github.com/IlyaShurupov/PyGraph
+[submodule "src/nanovg"]
+	path = src/nanovg
+	url = https://github.com/IlyaShurupov/nanovg.git
+[submodule "src/glew"]
+	path = src/glew
+	url = https://github.com/IlyaShurupov/glew.git
+[submodule "src/glfw"]
+	path = src/glfw
+	url = https://github.com/IlyaShurupov/glfw.git

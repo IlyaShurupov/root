@@ -24,15 +24,12 @@ data
 30DayOs
 blend
 cpython
-glew
-glfw
 glm
 godot
 imgui
 linux
 MITrasterizer
 nanogui
-nanovg
 pybind11
 python-vsgen
 raytracer-cpu

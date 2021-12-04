@@ -1,0 +1,1 @@
+start bin/win64/python/python310/python.exe rulles.py
