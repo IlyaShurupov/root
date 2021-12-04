@@ -22,6 +22,7 @@
 [submodule "src/glfw"]
 	path = src/glfw
 	url = https://github.com/IlyaShurupov/glfw.git
-[submodule "src\\Types"]
-	path = src\\Types
+[submodule "src/Types"]
+	path = src/Types
 	url = https://github.com/IlyaShurupov/Types.git
+
