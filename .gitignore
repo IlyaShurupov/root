@@ -24,6 +24,7 @@ data
 30DayOs
 blend
 cpython
+Python310
 glm
 godot
 imgui
@@ -39,3 +40,4 @@ SimpleRE
 tcc
 UnrealEngine
 Vulkan-Samples
+NdObject
