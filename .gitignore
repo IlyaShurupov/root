@@ -11,6 +11,8 @@ compile_commands.json
 __pycache__/
 *.py[cod]
 
+$RECYCLE.BIN
+
 # recreatable files
 .vs
 .vscode
@@ -19,6 +21,7 @@ bin
 lib
 tmp
 data
+docs
 
 # large || unimportant sources  // todo: create link refs in git
 30DayOs

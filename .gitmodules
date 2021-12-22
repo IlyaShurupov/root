@@ -7,9 +7,9 @@
 [submodule "src/Ma-SoftwareRayTracing"]
 	path = src/Ma-SoftwareRayTracing
 	url = https://github.com/IlyaShurupov/Ma-SoftwareRayTracing
-[submodule "src/PyEmb"]
-	path = src/PyEmb
-	url = https://github.com/IlyaShurupov/PyEmbedding
+[submodule "src/PyEmbedding"]
+	path = src/PyEmbedding
+	url = https://github.com/IlyaShurupov/PyEmbedding.git
 [submodule "src/PyGraph"]
 	path = src/PyGraph
 	url = https://github.com/IlyaShurupov/PyGraph
@@ -26,3 +26,6 @@
 	path = src/Types
 	url = https://github.com/IlyaShurupov/Types.git
 
+[submodule "src/sci"]
+	path = src/sci
+	url = https://github.com/IlyaShurupov/sci.git
