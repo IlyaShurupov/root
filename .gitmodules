@@ -35,3 +35,9 @@
 [submodule "src/Nodes-new"]
 	path = src/Nodes-new
 	url = https://github.com/IlyaShurupov/Nodes-new.git
+[submodule "src/lalr"]
+	path = src/lalr
+	url = https://github.com/IlyaShurupov/lalr.git
+[submodule "src/language"]
+	path = src/language
+	url = https://github.com/IlyaShurupov/language.git
