@@ -25,10 +25,6 @@
 [submodule "src/Types"]
 	path = src/Types
 	url = https://github.com/IlyaShurupov/Types.git
-
-[submodule "src/sci"]
-	path = src/sci
-	url = https://github.com/IlyaShurupov/sci.git
 [submodule "src/Objects"]
 	path = src/Objects
 	url = https://github.com/IlyaShurupov/Objects.git
