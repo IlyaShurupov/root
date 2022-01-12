@@ -1,6 +1,13 @@
 # all files to exclude from save
 desktop.ini
 
+$RECYCLE.BIN
+.sync
+desktop.ini
+osinit.lnk
+rulles.py
+docs
+
 #cache files
 CMakeLists.txt.user
 CMakeCache.txt
