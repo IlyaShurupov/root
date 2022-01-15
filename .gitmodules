@@ -37,3 +37,6 @@
 [submodule "src/language"]
 	path = src/language
 	url = https://github.com/IlyaShurupov/language.git
+[submodule "src/oscript"]
+	path = src/oscript
+	url = https://github.com/IlyaShurupov/oscript.git
