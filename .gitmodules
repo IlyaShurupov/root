@@ -46,6 +46,9 @@
 [submodule "src/imgui-vs"]
 	path = src/imgui-vs
 	url = https://github.com/IlyaShurupov/imgui-vs.git
+[submodule "src/imgui"]
+	path = src/imgui
+	url = https://github.com/IlyaShurupov/imgui.git
 [submodule "src/lunasvg"]
 	path = src/lunasvg
 	url = https://github.com/IlyaShurupov/lunasvg.git
