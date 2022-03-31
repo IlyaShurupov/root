@@ -1,6 +1,9 @@
 # all files to exclude from save
 desktop.ini
 
+#windows
+osini.lnk
+
 $RECYCLE.BIN
 .sync
 desktop.ini
@@ -30,16 +33,14 @@ bin
 lib
 tmp
 data
-docs
 
 # large || unimportant sources  // todo: create link refs in git
 30DayOs
-blend
+blenroot
 cpython
 Python310
 glm
 godot
-imgui
 linux
 MITrasterizer
 nanogui
@@ -54,3 +55,6 @@ UnrealEngine
 Vulkan-Samples
 NdObject
 sci
+libdivide
+PyEmb
+filesystem

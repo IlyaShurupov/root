@@ -40,3 +40,24 @@
 [submodule "src/oscript"]
 	path = src/oscript
 	url = https://github.com/IlyaShurupov/oscript.git
+[submodule "src/objects"]
+	path = src/objects
+	url = https://github.com/IlyaShurupov/objects.git
+[submodule "src/imgui-vs"]
+	path = src/imgui-vs
+	url = https://github.com/IlyaShurupov/imgui-vs.git
+[submodule "src/lunasvg"]
+	path = src/lunasvg
+	url = https://github.com/IlyaShurupov/lunasvg.git
+[submodule "src/soil"]
+	path = src/soil
+	url = https://github.com/IlyaShurupov/soil.git
+[submodule "src/ogl"]
+	path = src/ogl
+	url = https://github.com/IlyaShurupov/ogl.git
+[submodule "src/implot"]
+	path = src/implot
+	url = https://github.com/IlyaShurupov/implot.git
+[submodule "src/EasyTab"]
+	path = src/EasyTab
+	url = https://github.com/IlyaShurupov/Easytab.git
