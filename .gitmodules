@@ -55,9 +55,12 @@
 [submodule "src/soil"]
 	path = src/soil
 	url = https://github.com/IlyaShurupov/soil.git
-[submodule "src/ogl"]
-	path = src/ogl
-	url = https://github.com/IlyaShurupov/ogl.git
+[submodule "src/Strokes"]
+	path = src/Strokes
+	url = https://github.com/IlyaShurupov/Strokes.git
+[submodule "src/pathtracer"]
+	path = src/pathtracer
+	url = https://github.com/IlyaShurupov/pathtracer.git
 [submodule "src/implot"]
 	path = src/implot
 	url = https://github.com/IlyaShurupov/implot.git
