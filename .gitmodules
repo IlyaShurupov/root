@@ -1,18 +1,9 @@
-[submodule "src/Cbuilder"]
-	path = src/Cbuilder
-	url = https://github.com/IlyaShurupov/CBuilder.git
 [submodule "src/Nodes"]
 	path = src/Nodes
 	url = https://github.com/IlyaShurupov/Nodes.git
-[submodule "src/Ma-SoftwareRayTracing"]
-	path = src/Ma-SoftwareRayTracing
-	url = https://github.com/IlyaShurupov/Ma-SoftwareRayTracing
 [submodule "src/PyEmbedding"]
 	path = src/PyEmbedding
 	url = https://github.com/IlyaShurupov/PyEmbedding.git
-[submodule "src/PyGraph"]
-	path = src/PyGraph
-	url = https://github.com/IlyaShurupov/PyGraph
 [submodule "src/nanovg"]
 	path = src/nanovg
 	url = https://github.com/IlyaShurupov/nanovg.git
@@ -34,21 +25,12 @@
 [submodule "src/lalr"]
 	path = src/lalr
 	url = https://github.com/IlyaShurupov/lalr.git
-[submodule "src/language"]
-	path = src/language
-	url = https://github.com/IlyaShurupov/language.git
 [submodule "src/oscript"]
 	path = src/oscript
 	url = https://github.com/IlyaShurupov/oscript.git
 [submodule "src/objects"]
 	path = src/objects
 	url = https://github.com/IlyaShurupov/objects.git
-[submodule "src/imgui-vs"]
-	path = src/imgui-vs
-	url = https://github.com/IlyaShurupov/imgui-vs.git
-[submodule "src/imgui"]
-	path = src/imgui
-	url = https://github.com/IlyaShurupov/imgui.git
 [submodule "src/lunasvg"]
 	path = src/lunasvg
 	url = https://github.com/IlyaShurupov/lunasvg.git
@@ -61,9 +43,6 @@
 [submodule "src/pathtracer"]
 	path = src/pathtracer
 	url = https://github.com/IlyaShurupov/pathtracer.git
-[submodule "src/implot"]
-	path = src/implot
-	url = https://github.com/IlyaShurupov/implot.git
-[submodule "src/EasyTab"]
-	path = src/EasyTab
-	url = https://github.com/IlyaShurupov/Easytab.git
+[submodule "src/imgw"]
+	path = src/imgw
+	url = https://github.com/IlyaShurupov/imgw.git
