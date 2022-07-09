@@ -1,3 +1,6 @@
-# DevRoot
+# Development Root
 
-Repository containing all required projects and solution
+To get the full depth clone:
+```
+git clone --recursive https://github.com/IlyaShurupov/root.git
+```
